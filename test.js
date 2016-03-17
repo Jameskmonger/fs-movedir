@@ -116,3 +116,33 @@ test('it should call path.join with "a" and "x" when moving "x" into "a"', t => 
 
     mod(target, to);
 });
+
+test('it should rename the target to the result of path.join', t => {
+    t.plan(1);
+
+    let target = 'x';
+    let to = 'a';
+    let joinResult = "path-join-result";
+
+    let fs = {
+        mkdir: function (dir, cb) { },
+        rename: function (from, to, cb) {
+            if (from === target && to === joinResult) {
+                t.pass('target renamed correctly');
+            }
+        }
+    };
+
+    let path = {
+        join: function (a, b) {
+            return joinResult;
+        }
+    };
+
+    let mod = proxyquire('./index.js', {
+        'fs': fs,
+        'path': path
+    });
+
+    mod(target, to);
+});

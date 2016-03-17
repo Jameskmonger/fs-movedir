@@ -10,6 +10,9 @@ test('it should make a directory when moving "x" into "a"', t => {
         mkdir: function (dir, cb) {
             t.pass('mkdir called');
             cb();
+        },
+        rename: function (from, to, cb) {
+
         }
     };
 

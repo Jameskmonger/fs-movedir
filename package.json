@@ -11,5 +11,13 @@
   "devDependencies": {
     "proxyquire": "^1.7.4",
     "tape": "^4.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jameskmonger/fs-movedir.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jameskmonger/fs-movedir/issues"
+  },
+  "homepage": "https://github.com/Jameskmonger/fs-movedir#readme",
 }

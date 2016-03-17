@@ -15,3 +15,7 @@ movedir('myproject', 'javascript projects');
 ```
 
 This will create the target directory if it doesn't exist.
+
+## License
+
+[MIT](/LICENSE)

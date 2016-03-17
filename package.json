@@ -8,6 +8,9 @@
   },
   "author": "James Monger <jameskmonger@hotmail.co.uk>",
   "license": "MIT",
+  "files": [
+    "index.js"
+  ],
   "devDependencies": {
     "proxyquire": "^1.7.4",
     "tape": "^4.5.1"

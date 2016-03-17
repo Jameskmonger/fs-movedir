@@ -1,7 +1,7 @@
 {
   "name": "fs-movedir",
   "version": "0.0.1",
-  "description": "",
+  "description": "Move a directory into another directory",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"

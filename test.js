@@ -54,6 +54,9 @@ test('it should make a directory "b" when moving "x" into "b"', t => {
                 t.pass('mkdir called');
             }
             cb();
+        },
+        rename: function (from, to, cb) {
+
         }
     };
 

@@ -52,3 +52,18 @@ test('it should make a directory "b" when moving "x" into "b"', t => {
 
     mod('x', toDir);
 });
+
+test('it should rename a directory when moving "x" into "a"', t => {
+    t.plan(1);
+
+    let fs = {
+        mkdir: function (dir, cb) { },
+        rename: function (from, to, cb) {
+            t.pass('rename called');
+        }
+    };
+
+    let mod = proxyquire('./index.js', {'fs': fs});
+
+    mod('x', 'a');
+});

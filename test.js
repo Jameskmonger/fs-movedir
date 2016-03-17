@@ -9,6 +9,7 @@ test('it should make a directory when moving "x" into "a"', t => {
     let fs = {
         mkdir: function (dir, cb) {
             t.pass('mkdir called');
+            cb();
         }
     };
 
@@ -27,6 +28,7 @@ test('it should make a directory "a" when moving "x" into "a"', t => {
             if (dir === toDir) {
                 t.pass('mkdir called');
             }
+            cb();
         }
     };
 
@@ -45,6 +47,7 @@ test('it should make a directory "b" when moving "x" into "b"', t => {
             if (dir === toDir) {
                 t.pass('mkdir called');
             }
+            cb();
         }
     };
 
@@ -74,8 +77,12 @@ test('it should call path.join when moving "x" into "a"', t => {
     t.plan(1);
 
     let fs = {
-        mkdir: function (dir, cb) { },
-        rename: function (from, to, cb) {}
+        mkdir: function (dir, cb) {
+            cb();
+        },
+        rename: function (from, to, cb) {
+
+        }
     };
 
     let path = {
@@ -99,8 +106,12 @@ test('it should call path.join with "a" and "x" when moving "x" into "a"', t => 
     let to = 'a';
 
     let fs = {
-        mkdir: function (dir, cb) { },
-        rename: function (from, to, cb) {}
+        mkdir: function (dir, cb) {
+            cb();
+        },
+        rename: function (from, to, cb) {
+
+        }
     };
 
     let path = {
@@ -127,7 +138,9 @@ test('it should rename the target to the result of path.join', t => {
     let joinResult = "path-join-result";
 
     let fs = {
-        mkdir: function (dir, cb) { },
+        mkdir: function (dir, cb) {
+            cb();
+        },
         rename: function (from, to, cb) {
             if (from === target && to === joinResult) {
                 t.pass('target renamed correctly');

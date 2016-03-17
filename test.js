@@ -57,7 +57,9 @@ test('it should rename a directory when moving "x" into "a"', t => {
     t.plan(1);
 
     let fs = {
-        mkdir: function (dir, cb) { },
+        mkdir: function (dir, cb) {
+            cb();
+        },
         rename: function (from, to, cb) {
             t.pass('rename called');
         }

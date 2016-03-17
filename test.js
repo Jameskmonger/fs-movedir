@@ -67,3 +67,25 @@ test('it should rename a directory when moving "x" into "a"', t => {
 
     mod('x', 'a');
 });
+
+test('it should call path.join when moving "x" into "a"', t => {
+    t.plan(1);
+
+    let fs = {
+        mkdir: function (dir, cb) { },
+        rename: function (from, to, cb) {}
+    };
+
+    let path = {
+        join: function (a, b) {
+            t.pass('join called');
+        }
+    };
+
+    let mod = proxyquire('./index.js', {
+        'fs': fs,
+        'path': path
+    });
+
+    mod('x', 'a');
+});
